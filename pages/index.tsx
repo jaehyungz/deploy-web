@@ -2,10 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
+import Router, { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -15,9 +17,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
-        style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
       >
         <h1>KID & TAMA 첫배포</h1>
+
+        <button onClick={() => router.push("/sign-in")}>로그인 페이지</button>
       </div>
     </>
   );
